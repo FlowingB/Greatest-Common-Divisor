@@ -1,0 +1,24 @@
+#include <iostream>
+static int GCD(int dividend, int divisor, int& times)
+{
+	times += 1;
+	if (divisor == 0)
+	{
+		return dividend;
+	}
+	
+	int remainder = dividend % divisor;
+	return (GCD(divisor, remainder, times));
+}
+
+int main()
+{
+	std::cout << "Please input two non-negative integers:";
+	int dividend, divisor;
+	std::cin >> dividend;
+	std::cin >> divisor;
+	int times = 0;
+	int gcd = GCD(dividend, divisor, times);
+	
+	return 0;
+}
